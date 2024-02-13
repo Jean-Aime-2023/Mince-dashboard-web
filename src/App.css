@@ -1,38 +1,25 @@
-.App {
-  text-align: center;
+.darkBlueBg{
+  background: radial-gradient(294.57% 265.53% at 215.89% 0%, #0A1027 0%, #232262 100%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.textDarkBlue{
+  color: #0A1027;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.minceText{
+font-family: Poppins;
+font-size: 23px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+background: linear-gradient(248deg, #0A1027 -192.62%, #5547D7 85.3%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.logoMince{
+width: 50.001px;
+height: 40px;
+flex-shrink: 0;
 }
