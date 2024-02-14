@@ -27,7 +27,7 @@ const Header = ({ header, search, userProfile }) => {
       {userProfile && (
         <div className="flex flex-row items-center justify-center gap-3 cursor-pointer">
           <div>
-            <TiMessageTyping className="iconHeader cursor-pointer" size={30} />
+            <TiMessageTyping classNamxe="iconHeader cursor-pointer" size={30} />
           </div>
           <div className="relative cursor-pointer">
             <FaBell size={30} className="iconHeader" />
