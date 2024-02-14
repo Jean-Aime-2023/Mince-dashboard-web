@@ -4,10 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
   font-family: 'Poppins', sans-serif;
 }
 
 body{
-  overflow-y: hidden;
+  overflow-x: hidden;
+  background: #F9F9F9;
 }
+
+.mainBg{
+  background: #F9F9F9;
+}
+

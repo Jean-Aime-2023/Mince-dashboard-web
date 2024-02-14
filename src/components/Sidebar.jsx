@@ -1,164 +1,223 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { SidebarData } from './SidebarData';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logos/mince.png';
-import { FaArrowLeft } from 'react-icons/fa6';
-import { FaClipboardList } from 'react-icons/fa6';
-import { FaChevronDown } from "react-icons/fa6";
-import { CiWallet } from "react-icons/ci";
-import { FaBoxesStacked } from "react-icons/fa6";
-import { FaChartPie } from "react-icons/fa6";
-import { FaGear } from "react-icons/fa6";
-import { FaCircleQuestion } from "react-icons/fa6";
-import React, { useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { CiMenuFries } from 'react-icons/ci';
 
-export default function Sidebar() {
-  const [open, setOpen] = useState(true);
-  const [subMenuStates, setSubMenuStates] = useState({
-    Activities: false,
-  });
+const Sidebar = () => {
+  const [openDrop, setOpenDrop] = useState(false);
+  const [openSideBar, setOpenSideBar] = useState(false);
 
-  const Menus = [
-    { title: 'Dashboard', icon: <FaClipboardList />, to: '/' },
-    { title: 'Wallet', icon: <CiWallet />, to: '/wallet' },
-    {
-      title: 'Activities',
-      icon: <FaBoxesStacked />,
-      subMenu: true,
-      to:false,
-      subMenuItems: [
-        { title: 'Contracts', to: '/activities/contracts/' },
-        { title: 'Deals', to: '/activities/deals/' },
-      ],
-    },
-    { title: 'Analytics', icon: <FaChartPie />, to: '/analytics' },
-    { title: 'Settings', icon: <FaGear />, spacing: true, to: '/settings' },
-    { title: 'Get Help', icon: <FaCircleQuestion />, to: '/gethelp' },
-  ];
-
-  const toggleSubMenu = (menuTitle) => {
-    setSubMenuStates((prevState) => ({
-      ...prevState,
-      [menuTitle]: !prevState[menuTitle],
-    }));
+  const toggleSidebarOpen=()=>{
+    setOpenSideBar(!openSideBar)
+  }
+  const closeSidebar = () => {
+    if (openSideBar) {
+      setOpenSideBar(false);
+    }
   };
 
-  const firstFourItems = Menus.slice(0, 4);
-  const lastTwoItems = Menus.slice(-2);
-
-  const navigate = useNavigate();
-
+  const toggleOpenDrop = () => {
+    setOpenDrop(!openDrop);
+  };
+  const firstFourItems = SidebarData.slice(0, 4);
+  const lastTwoItems = SidebarData.slice(-2);
   return (
-    <div
-      className={`darkBlueBg h-screen p-3 pt-8 ${
-        open ? 'w-72' : 'w-20 p-4'
-      } duration-300 relative`}
-    >
-      <FaArrowLeft
-        className={`bg-white p-2 textDarkBlue rounded-lg text-4xl absolute -right-6 top-16 border border-blue-950 cursor-pointer ${
-          !open && 'rotate-180'
-        }`}
-        onClick={() => setOpen(!open)}
-      />
-      <div className="inline-flex gap-4 mt-10 h-[10%] cursor-pointer">
-        <img
-          src={logo}
-          alt="/"
-          className={`logoMince block float-left duration-500 ${
-            open && 'rotate-[360deg]'
-          }`}
-        />
-        <h1 className={`minceText duration-300 ${!open && 'scale-0'}`}>
-          MinceTech
-        </h1>
-      </div>
+    <>
+      <div className="darkBlueBg max-md:hidden fixed w-[355px] max-lg:w-[230px] h-screen flex flex-col justify-between max-lg:p-7 p-10">
+        {/* logo */}
+        <Link
+          to="/"
+          className="h-[11%] flex items-center cursor-pointer mb-10"
+        >
+          <div className="flex flex-row gap-3 items-center">
+            <img
+              src={logo}
+              alt="/"
+              className="w-[60px] h-[50px] max-lg:w-[50px] max-lg:h-[40px]"
+            />
+            <h1 className="minceText text-[23px] duration-300 max-lg:text-lg">
+              MinceTech
+            </h1>
+          </div>
+        </Link>
 
-      <div className="h-[90%] flex flex-col pb-14">
-        <ul className="pt-2">
-          {firstFourItems.map((menu, index) => (
-            <React.Fragment key={index}>
-              <li
-                className={`text-white text-lg flex items-center gap-x-4 cursor-pointer p-4 hover:bg-[#830FFF23] rounded-md justify-between ${
-                  menu.spacing ? 'mt-9' : 'mt-2'
-                }`}
-                onClick={() => navigate(menu.to)}
-              >
-                <Link className="flex gap-5">
-                  <span className="text-2xl block float-left">
-                    {menu.icon ? menu.icon : <FaClipboardList />}
-                  </span>
-                  <span
-                    className={`text-base font-medium flex-1 ${
-                      !open && 'hidden'
-                    }`}
-                  >
-                    {menu.title}
-                  </span>
-                </Link>
-                {menu.subMenu && open && (
-                  <FaChevronDown
-                    size={16}
-                    className={`duration-200 ${
-                      subMenuStates[menu.title] &&
-                      'rotate-180 ease-in-out'
-                    }`}
-                    onClick={() => toggleSubMenu(menu.title)}  
-                  />
-                )}
-              </li>
-
-              {menu.subMenu && subMenuStates && open && (
-                <ul className=' transition-all duration-200 ease-in-out'>
-                  {menu.subMenuItems.map((subMenuItem, index) => (
-                    <li
-                    onClick={() => navigate(menu.to)}
-                      key={index}
-                      className="text-white text-sm flex items-center gap-x-4 cursor-pointer p-5 ml-4 hover:bg-[#830FFF23] rounded-md"
+        {/* links */}
+        <div className="h-[89%] flex flex-col justify-between">
+          <div>
+            {firstFourItems.map((item, index) => {
+              return (
+                <li key={index} className="flex flex-col">
+                  {item.subMenu ? (
+                    <Link
+                      to={item.path}
+                      onClick={() => toggleOpenDrop()}
+                      className="flex w-full flex-row items-center justify-between text-white text-[18px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
                     >
-                      <Link
-                        to={`/${subMenuItem.title.toLowerCase()}/${menu.to}`}
-                      >
-                        {' '}
-                        {subMenuItem.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </React.Fragment>
-          ))}
-        </ul>
+                      <div className="flex flex-row gap-5">
+                        <div>{item.icon}</div>
+                        <span>{item.title}</span>
+                      </div>
+                      <div>{item.down}</div>
+                    </Link>
+                  ) : (
+                    <Link
+                      to={item.path}
+                      className="flex flex-row w-full items-center gap-6 text-white text-[18px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                    >
+                      <div>{item.icon}</div>
+                      <span>{item.title}</span>
+                    </Link>
+                  )}
 
-        <div className="mt-auto">
-          {lastTwoItems.map((menu, index) => (
-            <li
-              key={index}
-              className={`text-white text-lg flex items-center gap-x-4 cursor-pointer p-4 hover:bg-[#830FFF23] rounded-md ${
-                menu.spacing ? 'mt-9' : 'mt-2'
-              }`}
-              onClick={() => navigate(menu.to)}
-            >
-              <Link className="flex gap-5">
-                <span className="text-2xl block float-left">
-                  {menu.icon ? menu.icon : <FaClipboardList />}
-                </span>
-                <span
-                  className={`text-base font-medium flex-1 ${
-                    !open && 'hidden'
-                  }`}
-                >
-                  {menu.title}
-                </span>
-              </Link>
-              {menu.subMenu && open && (
-                <FaChevronDown
-                  className={`${subMenuStates[menu.title] && 'rotate-180'}`}
-                  onClick={() => toggleSubMenu(menu.title)}
-                />
-              )}
-            </li>
-          ))}
+                  {item.subMenu && (
+                    <ul
+                      className={`${
+                        openDrop
+                          ? 'flex flex-col bg-indigo-950 rounded-md m-3 duration-200 ease-in-out'
+                          : 'hidden'
+                      }`}
+                    >
+                      {item.subMenuItems.map((subMenu, indexSub) => (
+                        <li
+                          key={indexSub}
+                          className="flex text-[14px] duration-200 ease-in-out"
+                        >
+                          <Link
+                            to={subMenu.to}
+                            className="flex w-full pl-9 flex-row items-center text-white text-[16px] max-lg:text-[15px] font-normal rounded-xl py-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                          >
+                            {subMenu.title}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              );
+            })}
+          </div>
+
+          <div>
+            {lastTwoItems.map((item, index) => {
+              return (
+                <li key={index} className="flex">
+                  <Link
+                    to={item.path}
+                    className="flex flex-row w-full items-center gap-6 text-white text-[18px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                  >
+                    <div>{item.icon}</div>
+                    <span>{item.title}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+
+      <div className={`${openSideBar ? "duration-200 ease-in-out block fixed w-screen bg-black/70 z-30" : "hidden"}`} onClick={()=>closeSidebar()}>
+        <div className="darkBlueBg w-[355px] max-lg:w-[230px] h-screen relative flex flex-col justify-between max-lg:p-7 p-10">
+          {/* logo */}
+          <Link
+            to="/"
+            className="h-[11%] flex justify-start items-center cursor-pointer"
+          >
+            <div className="flex flex-row gap-5">
+              <img
+                src={logo}
+                alt="/"
+                className="w-[60px] h-[50px] max-lg:w-[50px] max-lg:h-[40px]"
+              />
+              <h1 className="minceText text-[23px] duration-300 max-lg:text-lg">
+                MinceTech
+              </h1>
+            </div>
+          </Link>
+
+          {/* links */}
+          <div className="h-[89%] flex flex-col justify-between">
+            <div>
+              {firstFourItems.map((item, index) => {
+                return (
+                  <li key={index} className="flex flex-col">
+                    {item.subMenu ? (
+                      <Link
+                        to={item.path}
+                        onClick={() => toggleOpenDrop()}
+                        className="flex w-full flex-row items-center justify-between text-white text-[15px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                      >
+                        <div className="flex flex-row gap-5">
+                          <div>{item.icon}</div>
+                          <span>{item.title}</span>
+                        </div>
+                        <div>{item.down}</div>
+                      </Link>
+                    ) : (
+                      <Link
+                        to={item.path}
+                        className="flex flex-row w-full items-center gap-6 text-white text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                      >
+                        <div>{item.icon}</div>
+                        <span>{item.title}</span>
+                      </Link>
+                    )}
+
+                    {item.subMenu && (
+                      <ul
+                        className={`${
+                          openDrop
+                            ? 'flex flex-col bg-indigo-950 rounded-md m-3 duration-200 ease-in-out'
+                            : 'hidden'
+                        }`}
+                      >
+                        {item.subMenuItems.map((subMenu, indexSub) => (
+                          <li
+                            key={indexSub}
+                            className="flex text-[14px] duration-200 ease-in-out"
+                          >
+                            <Link
+                              to={subMenu.to}
+                              className="flex w-full pl-9 flex-row items-center text-white text-[15px] font-normal rounded-xl py-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                            >
+                              {subMenu.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
+            </div>
+
+            <div>
+              {lastTwoItems.map((item, index) => {
+                return (
+                  <li key={index} className="flex">
+                    <Link
+                      to={item.path}
+                      className="flex flex-row w-full items-center gap-6 text-white text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                    >
+                      <div>{item.icon}</div>
+                      <span>{item.title}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <div className='icon absolute darkBlue p-2 rounded-lg top-8 cursor-pointer z-30 shadow-lg right-6 max-md:block hidden' onClick={()=>toggleSidebarOpen()}>
+         <CiMenuFries color='white' className='text-2xl font-bold'/>
+      </div>
+    </>
   );
-}
+};
+
+export default Sidebar;
