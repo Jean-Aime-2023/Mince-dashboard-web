@@ -1,8 +1,7 @@
 import React from 'react';
-import { FaArrowLeft } from 'react-icons/fa6';
 import { FaClipboardList } from 'react-icons/fa6';
 import { FaChevronDown } from "react-icons/fa6";
-import { CiWallet } from "react-icons/ci";
+import { IoMdWallet } from "react-icons/io";
 import { FaBoxesStacked } from "react-icons/fa6";
 import { FaChartPie } from "react-icons/fa6";
 import { FaGear } from "react-icons/fa6";
@@ -20,7 +19,7 @@ export const SidebarData = [
     title: 'Wallet',
     path: '/wallet',
     down: false,
-    icon: <CiWallet />,
+    icon: <IoMdWallet />,
     cName: 'nav-text',
   },
   {

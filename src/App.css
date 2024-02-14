@@ -53,5 +53,12 @@
 
 .notificationBorder{
   border-radius: 0px 10px 10px 0px;
+}
 
+.scrollbar-hidden::-webkit-scrollbar {
+  width: 0.5em; /* adjust as needed */
+}
+
+.scrollbar-hidden::-webkit-scrollbar-thumb {
+  background-color: transparent; /* hide the thumb */
 }

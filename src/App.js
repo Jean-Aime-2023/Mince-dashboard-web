@@ -12,7 +12,7 @@ import GetHelp from "./pages/GetHelpPage"
 
 export default function App() {
   return (
-    <div className='w-screen flex flow-row'>
+    <div className='w-screen flex flow-row overflow-hidden'>
       <div className=''><Sidebar/></div>
       <div className=' w-full lg:ml-[22.2rem] md:ml-[14.4rem]'><Routes>
         <Route path="/" element={<Dashboard />} />
