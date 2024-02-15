@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router , Route, Routes } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard';
 import Wallet from './pages/WalletPage';
