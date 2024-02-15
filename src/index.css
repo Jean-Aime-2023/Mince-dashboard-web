@@ -7,14 +7,86 @@
 
 * {
   font-family: 'Poppins', sans-serif;
+  @apply transition-colors duration-100;
 }
 
 body{
   overflow-x: hidden;
-  background: #F9F9F9;
 }
 
 .mainBg{
   background: #F9F9F9;
 }
 
+.home,
+.reports,
+.products {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.darkBlueBg {
+  background: radial-gradient(
+    294.57% 265.53% at 215.89% 0%,
+    #0a1027 0%,
+    #232262 100%
+  );
+  /* width: 355px; */
+  flex-shrink: 0;
+}
+
+.darkBlue{
+  background: radial-gradient(
+    294.57% 265.53% at 215.89% 0%,
+    #0a1027 0%,
+    #232262 100%
+  );
+}
+
+.textDarkBlue {
+  color: #0a1027;
+}
+
+.minceText {
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  background: linear-gradient(248deg, #0a1027 -192.62%, #5547d7 85.3%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.inputHeader {
+  border-radius: 10px;
+  border: 1px solid #d9d9d9;
+}
+
+.iconHeader {
+  background: rgb(207, 207, 207);
+  padding: 5px;
+  border-radius: 50px;
+}
+
+.notificationBorder{
+  border-radius: 0px 10px 10px 0px;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  width: 0.5em; /* adjust as needed */
+}
+
+.scrollbar-hidden::-webkit-scrollbar-thumb {
+  background-color: transparent; /* hide the thumb */
+}
+
+.darkModeSidebar{
+  background: radial-gradient(145.3% 196.17% at 134.88% -8.8%, #081029 0%, #081029 0.01%, #232266 100%);
+}
+
+.sidebar li a .active{
+  background: #000;
+}

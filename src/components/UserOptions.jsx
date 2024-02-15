@@ -8,16 +8,16 @@ import { Switch } from 'antd';
 const onChange = (checked) => {
   console.log(`switch to ${checked}`);
 };
-const Toggle = () => <Switch defaultChecked onChange={onChange} />;
+const Toggle = () => <Switch defaultChecked onChange={onChange} className=' dark:bg-slate-500' />;
 
-const UserOptions = ({openProfile}) => {
+const UserOptions = ({openProfile,toggleDarkMode}) => {
   return (
-    <div className={` ${openProfile ? "flex": "hidden"} bg-white p-5 rounded-xl flex flex-col gap-6`}>
+    <div className={` ${openProfile ? "flex": "hidden"} bg-white p-5 rounded-xl flex flex-col gap-6 dark:text-[#CECACAC9] dark:bg-[#0A1027]`}>
       <ul className="p-">
         <li>
           <Link
             to=""
-            className="flex flex-row gap-3 hover:bg-slate-200 p-3 rounded-xl"
+            className="flex flex-row gap-3 hover:bg-slate-200 dark:hover:bg-[#232262] p-3 rounded-xl"
           >
             <div>
               <HiOutlineUser size={20}/>
@@ -28,7 +28,7 @@ const UserOptions = ({openProfile}) => {
         <li>
           <Link
             to=""
-            className="flex flex-row gap-3 hover:bg-slate-200 p-3 rounded-xl"
+            className="flex flex-row gap-3 hover:bg-slate-200 dark:hover:bg-[#232262] p-3 rounded-xl"
           >
             <div>
               <IoMdWallet size={20}/>
@@ -39,7 +39,7 @@ const UserOptions = ({openProfile}) => {
         <li>
           <Link
             to=""
-            className="flex flex-row gap-3 hover:bg-slate-200 p-3 rounded-xl"
+            className="flex flex-row gap-3 hover:bg-slate-200 dark:hover:bg-[#232262] p-3 rounded-xl"
           >
             <div>
               <FaGear size={20}/>
@@ -50,16 +50,16 @@ const UserOptions = ({openProfile}) => {
         <li>
           <Link
             to=""
-            className="flex flex-row gap-8 hover:bg-slate-200 p-3 rounded-xl"
+            className="flex flex-row gap-20 hover:bg-slate-200 dark:hover:bg-[#232262] p-3 rounded-xl"
           >
-            <p>DarkMode</p>
-            <div><Toggle/></div>
+            <p>Theme</p>
+            <div onClick={()=>toggleDarkMode()}><Toggle/></div>
           </Link>
         </li>
         <li>
           <Link
             to=""
-            className="flex flex-row gap-3 hover:bg-slate-200 p-3 rounded-xl text-red-600 items-center"
+            className="flex flex-row gap-3 hover:bg-slate-200 dark:hover:bg-[#232262] p-3 rounded-xl text-red-600 items-center"
           > 
             <div> 
             <RiLogoutCircleRLine size={20}/>

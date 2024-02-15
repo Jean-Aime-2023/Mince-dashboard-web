@@ -24,7 +24,7 @@ const Sidebar = () => {
   const lastTwoItems = SidebarData.slice(-2);
   return (
     <>
-      <div className="darkBlueBg max-md:hidden fixed w-[355px] max-lg:w-[230px] h-screen flex flex-col justify-between max-lg:p-7 p-10">
+      <div className="darkBlueBg sidebar max-md:hidden fixed w-[355px] max-lg:w-[230px] h-screen flex flex-col justify-between max-lg:p-7 p-10 dark:darkModeSidebar">
         {/* logo */}
         <Link
           to="/"
@@ -52,13 +52,13 @@ const Sidebar = () => {
                     <Link
                       to={item.path}
                       onClick={() => toggleOpenDrop()}
-                      className="flex w-full flex-row items-center justify-between text-white text-[18px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                      className="flex w-full flex-row items-center  justify-between text-white text-[18px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
                     >
                       <div className="flex flex-row gap-5">
                         <div>{item.icon}</div>
                         <span>{item.title}</span>
                       </div>
-                      <div>{item.down}</div>
+                      <div className={`${openDrop ? "rotate-180 transition-all duration-200 ease-out" : "transition-all duration-200 ease-out"}`}>{item.down}</div>
                     </Link>
                   ) : (
                     <Link
@@ -98,7 +98,7 @@ const Sidebar = () => {
             })}
           </div>
 
-          <div>
+          <ul>
             {lastTwoItems.map((item, index) => {
               return (
                 <li key={index} className="flex">
@@ -112,7 +112,7 @@ const Sidebar = () => {
                 </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </div>
 
@@ -151,7 +151,7 @@ const Sidebar = () => {
                           <div>{item.icon}</div>
                           <span>{item.title}</span>
                         </div>
-                        <div>{item.down}</div>
+                        <div className={`${openDrop ? "rotate-180 transition-all duration-200 ease-out" : "transition-all duration-200 ease-out"}`}>{item.down}</div>
                       </Link>
                     ) : (
                       <Link
@@ -195,7 +195,7 @@ const Sidebar = () => {
               {lastTwoItems.map((item, index) => {
                 return (
                   <li key={index} className="flex">
-                    <Link
+                    <Link 
                       to={item.path}
                       className="flex flex-row w-full items-center gap-6 text-white text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
                     >
