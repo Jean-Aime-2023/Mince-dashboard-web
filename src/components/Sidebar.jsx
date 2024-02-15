@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { SidebarData } from './SidebarData';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from '../assets/logos/mince.png';
 import { CiMenuFries } from 'react-icons/ci';
 
@@ -138,7 +138,7 @@ const Sidebar = () => {
       <div
         className={`${
           openSideBar
-            ? 'duration-200 ease-in-out block fixed w-screen bg-black/70 z-30'
+            ? ' block fixed w-screen bg-black/70 z-30 transition ease-in-out duration-200'
             : 'hidden'
         }`}
         
