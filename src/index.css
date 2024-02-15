@@ -90,3 +90,9 @@ body{
 .sidebar li a .active{
   background: #000;
 }
+
+/* Add this to your CSS stylesheet */
+.active-link {
+  background-color: green; /* Set your desired background color for the active link */
+  color: white; /* Set your desired text color for the active link */
+}

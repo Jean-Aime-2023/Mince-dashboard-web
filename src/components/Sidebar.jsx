@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { SidebarData } from './SidebarData';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logos/mince.png';
 import { CiMenuFries } from 'react-icons/ci';
 
@@ -8,9 +8,9 @@ const Sidebar = () => {
   const [openDrop, setOpenDrop] = useState(false);
   const [openSideBar, setOpenSideBar] = useState(false);
 
-  const toggleSidebarOpen=()=>{
-    setOpenSideBar(!openSideBar)
-  }
+  const toggleSidebarOpen = () => {
+    setOpenSideBar(!openSideBar);
+  };
   const closeSidebar = () => {
     if (openSideBar) {
       setOpenSideBar(false);
@@ -26,7 +26,7 @@ const Sidebar = () => {
     <>
       <div className="darkBlueBg sidebar max-md:hidden fixed w-[355px] max-lg:w-[230px] h-screen flex flex-col justify-between max-lg:p-7 p-10 dark:darkModeSidebar">
         {/* logo */}
-        <Link
+        <NavLink
           to="/"
           className="h-[11%] flex items-center cursor-pointer mb-10"
         >
@@ -40,7 +40,7 @@ const Sidebar = () => {
               MinceTech
             </h1>
           </div>
-        </Link>
+        </NavLink>
 
         {/* links */}
         <div className="h-[89%] flex flex-col justify-between">
@@ -49,7 +49,7 @@ const Sidebar = () => {
               return (
                 <li key={index} className="flex flex-col">
                   {item.subMenu ? (
-                    <Link
+                    <NavLink
                       to={item.path}
                       onClick={() => toggleOpenDrop()}
                       className="flex w-full flex-row items-center  justify-between text-white text-[18px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
@@ -58,16 +58,24 @@ const Sidebar = () => {
                         <div>{item.icon}</div>
                         <span>{item.title}</span>
                       </div>
-                      <div className={`${openDrop ? "rotate-180 transition-all duration-200 ease-out" : "transition-all duration-200 ease-out"}`}>{item.down}</div>
-                    </Link>
+                      <div
+                        className={`${
+                          openDrop
+                            ? 'rotate-180 transition-all duration-200 ease-out'
+                            : 'transition-all duration-200 ease-out'
+                        }`}
+                      >
+                        {item.down}
+                      </div>
+                    </NavLink>
                   ) : (
-                    <Link
+                    <NavLink
                       to={item.path}
                       className="flex flex-row w-full items-center gap-6 text-white text-[18px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
                     >
                       <div>{item.icon}</div>
                       <span>{item.title}</span>
-                    </Link>
+                    </NavLink>
                   )}
 
                   {item.subMenu && (
@@ -83,12 +91,12 @@ const Sidebar = () => {
                           key={indexSub}
                           className="flex text-[14px] duration-200 ease-in-out"
                         >
-                          <Link
+                          <NavLink
                             to={subMenu.to}
                             className="flex w-full pl-9 flex-row items-center text-white text-[16px] max-lg:text-[15px] font-normal rounded-xl py-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
                           >
                             {subMenu.title}
-                          </Link>
+                          </NavLink>
                         </li>
                       ))}
                     </ul>
@@ -102,13 +110,13 @@ const Sidebar = () => {
             {lastTwoItems.map((item, index) => {
               return (
                 <li key={index} className="flex">
-                  <Link
+                  <NavLink
                     to={item.path}
                     className="flex flex-row w-full items-center gap-6 text-white text-[18px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
                   >
                     <div>{item.icon}</div>
                     <span>{item.title}</span>
-                  </Link>
+                  </NavLink>
                 </li>
               );
             })}
@@ -116,10 +124,28 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className={`${openSideBar ? "duration-200 ease-in-out block fixed w-screen bg-black/70 z-30" : "hidden"}`} onClick={()=>closeSidebar()}>
+
+
+
+
+
+
+
+
+
+
+
+      <div
+        className={`${
+          openSideBar
+            ? 'duration-200 ease-in-out block fixed w-screen bg-black/70 z-30'
+            : 'hidden'
+        }`}
+        
+      >
         <div className="darkBlueBg w-[355px] max-lg:w-[230px] h-screen relative flex flex-col justify-between max-lg:p-7 p-10">
           {/* logo */}
-          <Link
+          <NavLink
             to="/"
             className="h-[11%] flex justify-start items-center cursor-pointer"
           >
@@ -133,7 +159,7 @@ const Sidebar = () => {
                 MinceTech
               </h1>
             </div>
-          </Link>
+          </NavLink>
 
           {/* links */}
           <div className="h-[89%] flex flex-col justify-between">
@@ -142,7 +168,7 @@ const Sidebar = () => {
                 return (
                   <li key={index} className="flex flex-col">
                     {item.subMenu ? (
-                      <Link
+                      <NavLink
                         to={item.path}
                         onClick={() => toggleOpenDrop()}
                         className="flex w-full flex-row items-center justify-between text-white text-[15px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
@@ -151,16 +177,25 @@ const Sidebar = () => {
                           <div>{item.icon}</div>
                           <span>{item.title}</span>
                         </div>
-                        <div className={`${openDrop ? "rotate-180 transition-all duration-200 ease-out" : "transition-all duration-200 ease-out"}`}>{item.down}</div>
-                      </Link>
+                        <div
+                          className={`${
+                            openDrop
+                              ? 'rotate-180 transition-all duration-200 ease-out'
+                              : 'transition-all duration-200 ease-out'
+                          }`}
+                        >
+                          {item.down}
+                        </div>
+                      </NavLink>
                     ) : (
-                      <Link
+                      <NavLink
+                      onClick={() => closeSidebar()}
                         to={item.path}
                         className="flex flex-row w-full items-center gap-6 text-white text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
                       >
                         <div>{item.icon}</div>
                         <span>{item.title}</span>
-                      </Link>
+                      </NavLink>
                     )}
 
                     {item.subMenu && (
@@ -173,15 +208,16 @@ const Sidebar = () => {
                       >
                         {item.subMenuItems.map((subMenu, indexSub) => (
                           <li
+                            onClick={() => closeSidebar()}
                             key={indexSub}
                             className="flex text-[14px] duration-200 ease-in-out"
                           >
-                            <Link
+                            <NavLink
                               to={subMenu.to}
                               className="flex w-full pl-9 flex-row items-center text-white text-[15px] font-normal rounded-xl py-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
                             >
                               {subMenu.title}
-                            </Link>
+                            </NavLink>
                           </li>
                         ))}
                       </ul>
@@ -195,13 +231,14 @@ const Sidebar = () => {
               {lastTwoItems.map((item, index) => {
                 return (
                   <li key={index} className="flex">
-                    <Link 
+                    <NavLink
+                    onClick={() => closeSidebar()}
                       to={item.path}
                       className="flex flex-row w-full items-center gap-6 text-white text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
                     >
                       <div>{item.icon}</div>
                       <span>{item.title}</span>
-                    </Link>
+                    </NavLink>
                   </li>
                 );
               })}
@@ -210,11 +247,11 @@ const Sidebar = () => {
         </div>
       </div>
 
-
-
-
-      <div className='icon absolute darkBlue p-2 rounded-lg top-8 cursor-pointer z-30 shadow-lg right-6 max-md:block hidden' onClick={()=>toggleSidebarOpen()}>
-         <CiMenuFries color='white' className='text-2xl font-bold'/>
+      <div
+        className="icon absolute darkBlue p-2 rounded-lg top-8 cursor-pointer z-30 shadow-lg right-6 max-md:block hidden"
+        onClick={() => toggleSidebarOpen()}
+      >
+        <CiMenuFries color="white" className="text-2xl font-bold" />
       </div>
     </>
   );
