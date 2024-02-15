@@ -8,7 +8,7 @@ import { Switch } from 'antd';
 const onChange = (checked) => {
   console.log(`switch to ${checked}`);
 };
-const Toggle = () => <Switch defaultChecked onChange={onChange} className=' dark:bg-slate-500' />;
+const Toggle = () => <Switch defaultChecked onChange={onChange} className='bg-slate-500' />;
 
 const UserOptions = ({openProfile,toggleDarkMode}) => {
   return (

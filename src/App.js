@@ -24,12 +24,12 @@ export default function App() {
         <div className=" w-full lg:ml-[22.2rem] md:ml-[14.4rem]">
           <Routes>
             <Route path="/" element={<Dashboard toggleDarkMode={toggleDarkMode}/>} />
-            <Route path="/wallet" element={<Wallet />} />
-            <Route path="/activities/contracts" element={<Contract />} />
-            <Route path="/activities/deals" element={<Deals />} />
-            <Route path="/analytics" element={<Analytics />} />
-            <Route path="/settings" element={<Settings />} />
-            <Route path="/gethelp" element={<GetHelp />} />
+            <Route path="/wallet" element={<Wallet toggleDarkMode={toggleDarkMode} />} />
+            <Route path="/activities/contracts" element={<Contract toggleDarkMode={toggleDarkMode} />} />
+            <Route path="/activities/deals" element={<Deals toggleDarkMode={toggleDarkMode} />} />
+            <Route path="/analytics" element={<Analytics toggleDarkMode={toggleDarkMode} />} />
+            <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} />} />
+            <Route path="/gethelp" element={<GetHelp toggleDarkMode={toggleDarkMode} />} />
           </Routes>
         </div>
       </div>
