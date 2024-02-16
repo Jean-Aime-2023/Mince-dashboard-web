@@ -109,11 +109,3 @@ TableHead{
 .tableHd{
   background: red !important;
 }
-
-.NavLink b:nth-child(1){
-  position: absolute;
-  top: -20px;
-  height: 100%;
-  width: 20px;
-  background: #F9F9F9;
-}

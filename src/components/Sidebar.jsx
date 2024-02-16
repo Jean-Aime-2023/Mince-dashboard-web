@@ -51,12 +51,12 @@ const Sidebar = () => {
           <div>
             {firstFourItems.map((item, index) => {
               return (
-                <li key={index} className={`flex flex-col mt-1 ${location.pathname === item.path ? "pr-0 rounded-none" : "pr-10" }`}>
+                <li key={index} className="flex flex-col mt-1 pr-10">
                   {item.subMenu ? (
                     <NavLink
                       to={item.path}
                       onClick={() => toggleOpenDrop()}
-                      className={`flex w-full flex-row items-center gap-24 text-white text-[18px] max-lg:text-[15px] rounded-xl ${location.pathname === item.path ? "" : "" } font-normal py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]`}
+                      className="flex w-full flex-row items-center gap-24 text-[18px] max-lg:text-[15px] text-white rounded-xl font-normal py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
                     >
                       <div className="flex flex-row gap-5">
                         <div>{item.icon}</div>
@@ -75,9 +75,8 @@ const Sidebar = () => {
                   ) : (
                     <NavLink
                       to={item.path}
-                      className={`flex flex-row w-full items-center gap-6 text-white text-[18px] max-lg:text-[15px] rounded-xl font-normal py-5 px-4 ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] rounded-[50px] text-blue-950 duration-200 ease-out rounded-tr-none rounded-br-none " : "hover:bg-[#830FFF23]" }`}
-                    > <b></b>
-                      <b></b>
+                      className={`flex flex-row w-full items-center gap-6 text-[18px] max-lg:text-[15px] font-normal py-5 rounded-xl px-4 ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] text-[#0A1027] duration-200 ease-out" : "hover:bg-[#830FFF23] text-white" }`}
+                    >
                       <div>{item.icon}</div>
                       <span>{item.title}</span>
                     </NavLink>
@@ -87,7 +86,7 @@ const Sidebar = () => {
                     <ul
                       className={`${
                         openDrop
-                          ? 'flex flex-col bg-indigo-950 rounded-md m-3 duration-200 ease-in-out'
+                          ? 'flex flex-col rounded-md m-3 duration-200 ease-in-out'
                           : 'hidden'
                       }`}
                     >
@@ -98,7 +97,8 @@ const Sidebar = () => {
                         >
                           <NavLink
                             to={subMenu.to}
-                            className="flex w-full pl-9 flex-row items-center text-white text-[16px] max-lg:text-[15px] font-normal rounded-xl py-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                            className={`flex my-2 w-full pl-9 flex-row items-center text-[16px] max-lg:text-[15px] font-normal rounded-xl py-4 duration-500 ease-in-out 
+                            ${location.pathname === subMenu.to ? "text-black bg-white hover:bg-white" : "text-white border-none bg-indigo-950 hover:bg-[#830FFF23]"} `}
                           >
                             {subMenu.title}
                           </NavLink>
@@ -114,10 +114,10 @@ const Sidebar = () => {
           <ul>
             {lastTwoItems.map((item, index) => {
               return (
-                <li key={index} className="flex">
+                <li key={index} className="flex flex-col relative mt-1 pr-10">
                   <NavLink
                     to={item.path}
-                    className="flex flex-row w-full items-center gap-6 text-white text-[18px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                    className={`flex flex-row w-full items-center gap-6 text-[18px] max-lg:text-[15px] font-normal py-5 px-4 rounded-xl ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] text-[#0A1027] duration-200 ease-out " : "hover:bg-[#830FFF23] text-white" }`}
                   >
                     <div>{item.icon}</div>
                     <span>{item.title}</span>
@@ -196,7 +196,7 @@ const Sidebar = () => {
                       <NavLink
                       onClick={() => closeSidebar()}
                         to={item.path}
-                        className="flex flex-row w-full items-center gap-6 text-white text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                        className={`flex flex-row my-2 w-full items-center gap-6 text-[15px] font-normal rounded-xl py-5 px-4 ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] text-[#0A1027] duration-200 ease-out" : "hover:bg-[#830FFF23] text-white" } `}
                       >
                         <div>{item.icon}</div>
                         <span>{item.title}</span>
@@ -219,7 +219,9 @@ const Sidebar = () => {
                           >
                             <NavLink
                               to={subMenu.to}
-                              className="flex w-full pl-9 flex-row items-center text-white text-[15px] font-normal rounded-xl py-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                              className={`flex w-full pl-9 flex-row my-1 items-center text-[15px] font-normal rounded-xl py-4
+                              ${location.pathname === subMenu.to ? "text-black bg-white hover:bg-white" : "text-white border-none bg-indigo-950 hover:bg-[#830FFF23]"}
+                              `}
                             >
                               {subMenu.title}
                             </NavLink>
@@ -239,7 +241,7 @@ const Sidebar = () => {
                     <NavLink
                     onClick={() => closeSidebar()}
                       to={item.path}
-                      className="flex flex-row w-full items-center gap-6 text-white text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                      className={`flex flex-row my-2 w-full items-center gap-6 text-[15px] font-normal rounded-xl py-5 px-4 ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] text-[#0A1027] duration-200 ease-out" : "hover:bg-[#830FFF23] text-white" } `}
                     >
                       <div>{item.icon}</div>
                       <span>{item.title}</span>
