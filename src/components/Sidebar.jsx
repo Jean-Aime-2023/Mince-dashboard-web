@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SidebarData } from '../data/SidebarData';
-import { NavLink } from 'react-router-dom';
+import { NavLink , useLocation } from 'react-router-dom';
 import logo from '../assets/logos/mince.png';
 import { CiMenuFries } from 'react-icons/ci';
 
@@ -17,6 +17,10 @@ const Sidebar = () => {
     }
   };
 
+  const location = useLocation()
+
+  
+
   const toggleOpenDrop = () => {
     setOpenDrop(!openDrop);
   };
@@ -24,11 +28,11 @@ const Sidebar = () => {
   const lastTwoItems = SidebarData.slice(-2);
   return (
     <>
-      <div className="darkBlueBg sidebar max-md:hidden fixed w-[355px] max-lg:w-[230px] h-screen flex flex-col justify-between max-lg:p-7 p-10 dark:darkModeSidebar">
+      <div className="darkBlueBg sidebar max-md:hidden fixed w-[355px] max-lg:w-[230px] h-screen flex flex-col justify-between max-lg:p-7 pt-10 pr-0 pl-10 pb-10 dark:darkModeSidebar">
         {/* logo */}
         <NavLink
           to="/"
-          className="h-[11%] flex items-center cursor-pointer mb-10"
+          className="h-[11%] flex items-center cursor-pointer mb-10 pr-10"
         >
           <div className="flex flex-row gap-3 items-center">
             <img
@@ -47,12 +51,12 @@ const Sidebar = () => {
           <div>
             {firstFourItems.map((item, index) => {
               return (
-                <li key={index} className="flex flex-col">
+                <li key={index} className={`flex flex-col mt-1 ${location.pathname === item.path ? "pr-0 rounded-none" : "pr-10" }`}>
                   {item.subMenu ? (
                     <NavLink
                       to={item.path}
                       onClick={() => toggleOpenDrop()}
-                      className="flex w-full flex-row items-center  justify-between text-white text-[18px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                      className={`flex w-full flex-row items-center gap-24 text-white text-[18px] max-lg:text-[15px] rounded-xl ${location.pathname === item.path ? "" : "" } font-normal py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]`}
                     >
                       <div className="flex flex-row gap-5">
                         <div>{item.icon}</div>
@@ -71,8 +75,9 @@ const Sidebar = () => {
                   ) : (
                     <NavLink
                       to={item.path}
-                      className="flex flex-row w-full items-center gap-6 text-white text-[18px] max-lg:text-[15px] font-normal rounded-xl py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
-                    >
+                      className={`flex flex-row w-full items-center gap-6 text-white text-[18px] max-lg:text-[15px] rounded-xl font-normal py-5 px-4 ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] rounded-[50px] text-blue-950 duration-200 ease-out rounded-tr-none rounded-br-none " : "hover:bg-[#830FFF23]" }`}
+                    > <b></b>
+                      <b></b>
                       <div>{item.icon}</div>
                       <span>{item.title}</span>
                     </NavLink>

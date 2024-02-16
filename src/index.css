@@ -96,3 +96,24 @@ body{
   background-color: green; /* Set your desired background color for the active link */
   color: white; /* Set your desired text color for the active link */
 }
+
+
+.shadow-hover{
+  box-shadow: 0px 1px 8px 0px rgba(110, 110, 110, 0.25);
+}
+
+TableHead{
+  background: #5547d7;
+}
+
+.tableHd{
+  background: red !important;
+}
+
+.NavLink b:nth-child(1){
+  position: absolute;
+  top: -20px;
+  height: 100%;
+  width: 20px;
+  background: #F9F9F9;
+}
