@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SidebarData } from './SidebarData';
+import { SidebarData } from '../data/SidebarData';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/logos/mince.png';
 import { CiMenuFries } from 'react-icons/ci';
