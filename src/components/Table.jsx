@@ -1,73 +1,62 @@
-import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { red } from '@mui/material/colors';
+// Table.js
+import React from 'react';
+import classNames from 'classnames';
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
-
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
-}));
-
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-export default function CustomizedTables() {
+const Table = ({ data }) => {
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow className='tableHd'>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
-          </TableRow>   
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <table className="w-full overflow-x-scroll">
+      <thead className='bg-gray-100 w-full dark:bg-[#0A1027]'>
+        <tr>
+          <th className="px-6 py-4 bg-gray-50 dark:bg-[#0A1027] text-left leading-4 dark:text-[#6B6B6B] font-medium text-gray-500 tracking-wider">
+            Name/Company
+          </th>
+          <th className="px-6 py-4 bg-gray-50 dark:bg-[#0A1027] text-left leading-4 dark:text-[#6B6B6B]  font-medium text-gray-500 tracking-wider">
+            Contacts
+          </th>
+          <th className="px-6 py-4 bg-gray-50 dark:bg-[#0A1027] text-left leading-4 dark:text-[#6B6B6B]  font-medium text-gray-500 tracking-wider">
+            Method
+          </th>
+          <th className="px-6 py-4 bg-gray-50 dark:bg-[#0A1027] text-left leading-4 dark:text-[#6B6B6B]  font-medium text-gray-500 tracking-wider">
+            Value
+          </th>
+          <th className="px-6 py-4 bg-gray-50 dark:bg-[#0A1027] text-left leading-4 dark:text-[#6B6B6B]  font-medium text-gray-500 tracking-wider">
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((row, index) => (
+          <tr
+            key={index}
+            className={classNames({
+              'bg-white dark:bg-[#5547D70D]': index % 2 === 0,
+              'bg-gray-100 dark:bg-[#0A1027]': index % 2 !== 0,
+            })}
+          >
+            <td className="pl-6 py-4 whitespace-no-wrap text-sm leading-5 text-[#000000C9] dark:text-[#CECACA]">
+              {row.column1}
+            </td>
+            <td className="pl-6 py-4 whitespace-no-wrap text-sm leading-5 text-[#000000C9] dark:text-[#CECACA]">
+              {row.column2}
+            </td>
+            <td className="pl-6 py-4 whitespace-no-wrap text-sm leading-5 text-[#000000C9] dark:text-[#CECACA]">
+              {row.column3}
+            </td>
+            <td className="pl-6 py-4 whitespace-no-wrap text-sm leading-5 text-[#000000C9] dark:text-[#CECACA]">
+              {row.column4}
+            </td>
+            <td className="pl-6 py-4 whitespace-no-wrap text-sm leading-5 text-[#000000C9] dark:text-[#CECACA]">
+              {row.column5}
+            </td>
+            <td className="pl-6 py-4 whitespace-no-wrap text-sm leading-5 text-[#000000C9] dark:text-[#CECACA]">
+              {row.column6}
+            </td>
+            {/* Add more columns as needed */}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
-}
+};
+
+export default Table;
