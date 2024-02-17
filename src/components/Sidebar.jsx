@@ -28,7 +28,7 @@ const Sidebar = () => {
   const lastTwoItems = SidebarData.slice(-2);
   return (
     <>
-      <div className="darkBlueBg sidebar max-md:hidden fixed w-[355px] max-lg:w-[230px] h-screen flex flex-col justify-between max-lg:p-7 pt-10 pr-0 pl-10 pb-10 dark:darkModeSidebar">
+      <div className="darkBlueBg sidebar max-md:hidden fixed w-[355px] max-lg:w-[230px] h-screen flex flex-col justify-between pr-0 pl-10 pt-10 pb-10 max-lg:pl-5 dark:darkModeSidebar">
         {/* logo */}
         <NavLink
           to="/"
@@ -56,7 +56,7 @@ const Sidebar = () => {
                     <NavLink
                       to={item.path}
                       onClick={() => toggleOpenDrop()}
-                      className="flex w-full flex-row items-center gap-24 text-[18px] max-lg:text-[15px] text-white rounded-xl font-normal py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
+                      className="flex w-full flex-row items-center justify-between text-[18px] max-lg:text-[15px] text-white rounded-xl font-normal py-5 px-4 duration-500 ease-in-out hover:bg-[#830FFF23]"
                     >
                       <div className="flex flex-row gap-5">
                         <div>{item.icon}</div>
@@ -255,7 +255,7 @@ const Sidebar = () => {
       </div>
 
       <div
-        className="icon absolute darkBlue p-2 rounded-lg top-8 cursor-pointer z-30 shadow-lg right-6 max-md:block hidden"
+        className="icon absolute darkBlue p-2 rounded-lg top-8 cursor-pointer z-30 shadow-lg right-6 max-md:block hidden max-sm:top-24"
         onClick={() => toggleSidebarOpen()}
       >
         <CiMenuFries color="white" className="text-2xl font-bold" />

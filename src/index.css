@@ -11,7 +11,7 @@
 }
 
 body{
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .mainBg{
@@ -108,4 +108,18 @@ TableHead{
 
 .tableHd{
   background: red !important;
+}
+
+
+.dashedBorder{
+  border: 2px dashed #5547D7;
+}
+
+.borderRadius{
+  border-radius: 100px 0px 40px 0px;
+
+}
+
+.shadowCards{
+  box-shadow: 0px 1px 8px 0px rgba(110, 110, 110, 0.25);
 }

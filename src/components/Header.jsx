@@ -25,7 +25,7 @@ const Header = ({ header, search, userProfile,toggleDarkMode}) => {
     }
   };
   return (
-      <div className="p-8 flex flow-row justify-between items-center bg-white dark:bg-[#0A1027] dark:text-[#D9D9D9]">
+      <div className="p-8 flex flow-row justify-between max-xl:px-5 items-center bg-white dark:bg-[#0A1027] dark:text-[#D9D9D9]">
       <div
         className={`${
           !search ? 'max-md:block' : 'max-lg:hidden max-md:block max-sm:hidden'
@@ -35,7 +35,7 @@ const Header = ({ header, search, userProfile,toggleDarkMode}) => {
       </div>
 
       {search && (
-        <div className="flex flex-row items-center justify-center px-[20px] py-[10px] gap-3 inputHeader dark:border-[#D9D9D9] w-[40%] max-sm:w-[55%]">
+        <div className="flex flex-row items-center justify-center px-[20px] py-[10px] gap-3 inputHeader dark:border-[#D9D9D9] w-[40%] max-sm:w-[55%] max-sm:ml-[-1rem] max-sm:mr-1">
           <IoSearch />
           <input
             type="text"
@@ -57,7 +57,7 @@ const Header = ({ header, search, userProfile,toggleDarkMode}) => {
             <FaBell size={37} className="iconHeader dark:bg-[#232262]" />
             <GoDotFill className="absolute -top-1 -right-1" fill="red" />
           </div>
-          <div className="flex flex-row items-center gap-2 max-md:mr-10" onClick={()=>toggleProfile()}>
+          <div className="flex flex-row items-center gap-2 max-md:mr-10 max-sm:mr-0" onClick={()=>toggleProfile()}>
             <img
               src="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg"
               alt="/"
@@ -82,7 +82,7 @@ const Header = ({ header, search, userProfile,toggleDarkMode}) => {
 
       <div className={`${
           openProfile
-            ? 'scale-100 top-[6rem] right-5 dark:bg-[#0A1027] duration-200 ease-in-out overflow-y-scroll rounded-xl scrollbar-hidden shadow-xl border bg-white border-gray-200 dark:border-slate-800'
+            ? 'scale-100 z-50 top-[6rem] right-5 dark:bg-[#0A1027] duration-200 ease-in-out overflow-y-scroll rounded-xl scrollbar-hidden shadow-xl border bg-white border-gray-200 dark:border-slate-800'
             : 'scale-0'
         } absolute transform transition duration-200 ease-in-out origin-top`}><UserOptions openProfile={openProfile} toggleDarkMode={toggleDarkMode} /></div>
     </div>    
