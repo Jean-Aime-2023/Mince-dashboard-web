@@ -11,7 +11,7 @@ import { IoMdStopwatch } from "react-icons/io";
 
 const RigthSide = () => {
   return (
-    <div className="flex flex-col gap-10 h-full overflow-y-scroll scrollbar-hidden pb-20 px-3 py-3">
+    <div className="flex flex-col z-0 gap-10 h-full overflow-y-scroll scrollbar-hidden pb-20 px-3 py-3">
       <div className="flex flex-col gap-6 bg-white rounded-2xl shadowCards p-10 dark:bg-[#0A1027]">
         <div className="flex flow-row justify-between">
           <p className="text-[#002159] text-xl dark:text-[#6B6B6B]">My Cards</p>

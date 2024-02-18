@@ -73,7 +73,7 @@ const Header = ({ header, search, userProfile,toggleDarkMode}) => {
       <div
         className={`${
           openNotif
-            ? 'scale-100 top-[6rem] right-5 max-sm:right-3 max-sm:mx-3 duration-200 ease-in-out overflow-y-scroll h-[80%] rounded-xl scrollbar-hidden shadow-xl border bg-white border-gray-200 dark:border-slate-800 dark:text-[#CECACAC9] dark:bg-[#0A1027]'
+            ? 'scale-100 top-[6rem] right-5 z-[1000] max-sm:right-3 max-sm:mx-3 duration-200 ease-in-out overflow-y-scroll h-[80%] rounded-xl scrollbar-hidden shadow-xl border bg-white border-gray-200 dark:border-slate-800 dark:text-[#CECACAC9] dark:bg-[#0A1027]'
             : 'scale-0'
         } absolute transform transition duration-200 ease-in-out origin-top`}
       >
@@ -82,7 +82,7 @@ const Header = ({ header, search, userProfile,toggleDarkMode}) => {
 
       <div className={`${
           openProfile
-            ? 'scale-100 z-50 top-[6rem] right-5 dark:bg-[#0A1027] duration-200 ease-in-out overflow-y-scroll rounded-xl scrollbar-hidden shadow-xl border bg-white border-gray-200 dark:border-slate-800'
+            ? 'scale-100 top-[6rem] right-5 dark:bg-[#0A1027] duration-200 ease-in-out overflow-y-scroll rounded-xl scrollbar-hidden shadow-xl border bg-white border-gray-200 dark:border-slate-800'
             : 'scale-0'
         } absolute transform transition duration-200 ease-in-out origin-top`}><UserOptions openProfile={openProfile} toggleDarkMode={toggleDarkMode} /></div>
     </div>    
