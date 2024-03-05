@@ -123,3 +123,7 @@ TableHead{
 .shadowCards{
   box-shadow: 0px 1px 8px 0px rgba(110, 110, 110, 0.25);
 }
+
+.darkBg{
+  background: linear-gradient(259deg, #0A1027 -16.2%, #232262 96.5%);
+}

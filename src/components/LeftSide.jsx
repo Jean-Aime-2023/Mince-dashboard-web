@@ -96,7 +96,7 @@ const LeftSide = () => {
         </svg>
       ),
       column4: '$230',
-      column5: <Button action="Get Deatil" />,
+      column5: <Button icon={null} action="Get Deatil" />,
     },
     {
       column1: (
@@ -141,7 +141,7 @@ const LeftSide = () => {
         </svg>
       ),
       column4: '$230',
-      column5: <Button action="Get Deatil" />,
+      column5: <Button icon={null} action="Get Deatil" />,
     },
     {
       column1: (
@@ -186,7 +186,7 @@ const LeftSide = () => {
         </svg>
       ),
       column4: '$230',
-      column5: <Button action="Get Deatil" />,
+      column5: <Button icon={null} action="Get Deatil" />,
     },
     // Add more data rows as needed
   ];

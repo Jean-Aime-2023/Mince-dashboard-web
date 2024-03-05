@@ -79,7 +79,7 @@ const Header = ({ header, search, userProfile, toggleDarkMode }) => {
       </div>
 
       <div className={`${openProfile
-          ? 'scale-100 top-[6rem] right-5 dark:bg-[#0A1027] duration-200 ease-in-out overflow-y-scroll rounded-xl scrollbar-hidden shadow-xl border bg-white border-gray-200 dark:border-slate-800'
+          ? 'scale-100 top-[6rem] z-40 right-5 dark:bg-[#0A1027] duration-200 ease-in-out overflow-y-scroll rounded-xl scrollbar-hidden shadow-xl border bg-white border-gray-200 dark:border-slate-800'
           : 'scale-0'
         } absolute transform transition duration-200 ease-in-out origin-top`}><UserOptions openProfile={openProfile} toggleDarkMode={toggleDarkMode} /></div>
     </div>
