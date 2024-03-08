@@ -9,6 +9,11 @@ import Card1 from '../assets/images/Mask group.png'
 import Card2 from '../assets/images/Mask group (2).png'
 import Card3 from '../assets/images/Mask group (1).png'
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import CountrySelector from '../components/CountrySelector';
+import LinkSvg from '../assets/svg/Links';
+import { GoArrowUpRight } from "react-icons/go";
+import { HiMiniArrowDownLeft } from "react-icons/hi2";
+import { FaExclamation } from "react-icons/fa6";
 
 
 const WalletPage = ({ toggleDarkMode }) => {
@@ -21,22 +26,14 @@ const WalletPage = ({ toggleDarkMode }) => {
 
           <div className='darkBg rounded-xl w-full p-8 flex flex-col gap-5'>
             <p className='text-[#6B6B6B] text-lg'>Your Total Balance</p>
-            <section className='flex flex-row max-md:flex-col gap-5 justify-between'>
+            <section className='lg:flex flex-row max-md:flex-col gap-5 justify-between'>
               <span className='font-bold text-5xl text-white'>$ 5,672.55</span>
               <Button icon={<FaPlus />} action="Add Money To Wallet" />
             </section>
-            <section className='flex flex-row gap-3 px-4 py-2'>
+            <section className='lg:flex flex-row gap-3 max-lg:gap-6 px-4 py-2'>
               <div className='flex flex-col justify-center gap-2 bg-white px-5 py-3 rounded-lg'>
                 <p className='text-xl font-semibold flex items-center gap-3'><span><LuTrendingUp color='green' /></span> $500.02</p>
                 <p className='font-light'>Today's Income</p>
-              </div>
-              <div className='flex flex-col justify-center gap-2 bg-white px-5 py-3 rounded-lg'>
-                <p className='text-xl font-semibold flex items-center gap-3'><span><LuTrendingDown color='red' /></span> $500.02</p>
-                <p className='font-light'>Today's Expenses</p>
-              </div>
-              <div className='flex flex-col justify-center gap-2 bg-white px-5 py-3 rounded-lg'>
-                <p className='text-xl font-semibold flex items-center gap-3'><span><LuTrendingUp color='green' /></span> $10.02</p>
-                <p className='font-light'>Escrow Savings</p>
               </div>
               <div className='flex flex-col justify-center gap-2 bg-white px-5 py-3 rounded-lg'>
                 <p className='text-xl font-semibold flex items-center gap-3'><span><LuTrendingDown color='red' /></span> $500.02</p>
@@ -62,7 +59,7 @@ const WalletPage = ({ toggleDarkMode }) => {
                 <img src={Card3} alt="card 1" className='cursor-pointer' />
               </div>
             </div>
-            <div className='flex flex-col w-[70%] px-8 py-5'>
+            <div className='flex flex-col w-[70%] px-8 py-5 bg-white rounded-xl dark:bg-[#0A1027] dark:text-[#6B6B6B]'>
               <section className='flex justify-center'><img src={Card1} alt="" className='h-[20rem] cursor-pointer' /></section>
               <div className='flex flex-col gap-5'>
                 <div className='flex flex-row justify-between items-center'>
@@ -87,21 +84,82 @@ const WalletPage = ({ toggleDarkMode }) => {
             </div>
           </div>
         </div>
-        <div className='w-[30%] h-full'>right</div>
+        <div className='w-[30%] h-full flex flex-col gap-9 p-6 overflow-y-scroll scrollbar-hidden dark:text-[#6B6B6B]'>
+            <div className='flex flex-col gap-6 bg-white dark:bg-[#0A1027] p-7 rounded-xl shadow-md'>
+              <section className='flex justify-between'>
+                <p className='font-medium text-lg'>Money Exchange</p>
+                <LinkSvg/>
+              </section>
+              <div className='flex flex-col gap-3'>
+              <CountrySelector />
+              <CountrySelector />
+              </div>
+            </div>
+
+            <div className='flex flex-col gap-6 bg-white dark:bg-[#0A1027] p-7 rounded-xl shadow-md dark:text-[#6B6B6B]'>
+              <section className='flex justify-between'>
+                <p className='font-medium text-lg'>Recent Transactions</p>
+                <span className='underline decoration-solid text-[#5547D7] cursor-pointer'>Clear All</span>
+              </section>
+
+              <div className='flex items-center justify-between py-3 cursor-pointer'>
+                <section className='flex items-center gap-3'>
+                  <img className="w-[35px] h-[35px] rounded-full" src="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg" alt="img" />
+                  <section className='flex flex-col'>
+                    <p className='font-semibold'>Kirezi Livia</p>
+                    <p className='text-sm'>January 24 , 2022</p>
+                  </section>
+                </section>
+                <div className='bg-red-200 text-red-600 flex items-center gap-2 px-4 py-1 rounded-xl text-sm'>
+                  <GoArrowUpRight className='bg-red-600 text-white rounded-full p-1' size={20}/>
+                  <p>Sent</p>
+                </div>
+              </div>
+              <div className='flex items-center justify-between py-3 cursor-pointer'>
+                <section className='flex items-center gap-3'>
+                  <img className="w-[35px] h-[35px] rounded-full" src="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg" alt="img" />
+                  <section className='flex flex-col'>
+                    <p className='font-semibold'>Kenny Sol</p>
+                    <p className='text-sm'>February 24 , 2022</p>
+                  </section>
+                </section>
+                <div className='bg-green-200 text-green-600 flex items-center gap-2 px-4 py-1 rounded-xl text-sm'>
+                  <HiMiniArrowDownLeft className='bg-green-600 text-white rounded-full p-1' size={20}/>
+                  <p>Received</p>
+                </div>
+              </div>
+              <div className='flex items-center justify-between py-3 cursor-pointer'>
+                <section className='flex items-center gap-3'>
+                  <img className="w-[35px] h-[35px] rounded-full" src="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg" alt="img" />
+                  <section className='flex flex-col'>
+                    <p className='font-semibold'>Nadette Batete</p>
+                    <p className='text-sm'>April 9 , 2022</p>
+                  </section>
+                </section>
+                <div className='bg-orange-200 text-orange-600 flex items-center gap-2 px-4 py-1 rounded-xl text-sm'>
+                  <FaExclamation className='bg-orange-600 text-white rounded-full p-1' size={20}/>
+                  <p>Pending</p>
+                </div>
+              </div>
+              <div className='flex items-center justify-between py-3 cursor-pointer'>
+                <section className='flex items-center gap-3'>
+                  <img className="w-[35px] h-[35px] rounded-full" src="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg" alt="img" />
+                  <section className='flex flex-col'>
+                    <p className='font-semibold'>Asifiwe Angele</p>
+                    <p className='text-sm'>June 10 , 2022</p>
+                  </section>
+                </section>
+                <div className='bg-red-200 text-red-600 flex items-center gap-2 px-4 py-1 rounded-xl text-sm'>
+                  <GoArrowUpRight className='bg-red-600 text-white rounded-full p-1' size={20}/>
+                  <p>Sent</p>
+                </div>
+              </div>
+            </div>
+          
+        </div>
       </div>
     </div>
   );
 };
 
 export default WalletPage;
-
-
-{/* <div className="flex flex-col bg-[#F9F9F9] dark:bg-[#0F1631] h-screen">
-      <Header header="Dashboard" search="true" userProfile="false" toggleDarkMode={toggleDarkMode} />
-      
-      <div className='h-screen flex flow-row p-10 gap-10 max-lg:flex-col'>
-        <div className='w-[70%] max-md:w-full py-3'><RightSide/></div>
-        <div className='w-[30%] max-md:hidden'><LeftSide/></div>
-      </div>
-      
-    </div> */}
