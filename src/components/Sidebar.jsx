@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SidebarData } from '../data/SidebarData';
-import { NavLink , useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import logo from '../assets/logos/mince.png';
 import { CiMenuFries } from 'react-icons/ci';
 
@@ -19,7 +19,7 @@ const Sidebar = () => {
 
   const location = useLocation()
 
-  
+
 
   const toggleOpenDrop = () => {
     setOpenDrop(!openDrop);
@@ -63,11 +63,10 @@ const Sidebar = () => {
                         <span>{item.title}</span>
                       </div>
                       <div
-                        className={`${
-                          openDrop
+                        className={`${openDrop
                             ? 'rotate-180 transition-all duration-200 ease-out'
                             : 'transition-all duration-200 ease-out'
-                        }`}
+                          }`}
                       >
                         {item.down}
                       </div>
@@ -75,7 +74,7 @@ const Sidebar = () => {
                   ) : (
                     <NavLink
                       to={item.path}
-                      className={`flex flex-row w-full items-center gap-6 text-[18px] max-lg:text-[15px] font-normal py-5 rounded-xl px-4 ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] text-[#0A1027] duration-200 ease-out" : "hover:bg-[#830FFF23] text-white" }`}
+                      className={`flex flex-row w-full items-center gap-6 text-[18px] max-lg:text-[15px] font-normal py-5 rounded-xl px-4 ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] text-[#0A1027] duration-200 ease-out" : "hover:bg-[#830FFF23] text-white"}`}
                     >
                       <div>{item.icon}</div>
                       <span>{item.title}</span>
@@ -84,11 +83,10 @@ const Sidebar = () => {
 
                   {item.subMenu && (
                     <ul
-                      className={`${
-                        openDrop
+                      className={`${openDrop
                           ? 'flex flex-col rounded-md m-3 duration-200 ease-in-out'
                           : 'hidden'
-                      }`}
+                        }`}
                     >
                       {item.subMenuItems.map((subMenu, indexSub) => (
                         <li
@@ -117,7 +115,7 @@ const Sidebar = () => {
                 <li key={index} className="flex flex-col relative mt-1 pr-10">
                   <NavLink
                     to={item.path}
-                    className={`flex flex-row w-full items-center gap-6 text-[18px] max-lg:text-[15px] font-normal py-5 px-4 rounded-xl ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] text-[#0A1027] duration-200 ease-out " : "hover:bg-[#830FFF23] text-white" }`}
+                    className={`flex flex-row w-full items-center gap-6 text-[18px] max-lg:text-[15px] font-normal py-5 px-4 rounded-xl ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] text-[#0A1027] duration-200 ease-out " : "hover:bg-[#830FFF23] text-white"}`}
                   >
                     <div>{item.icon}</div>
                     <span>{item.title}</span>
@@ -141,12 +139,11 @@ const Sidebar = () => {
 
 
       <div
-        className={`${
-          openSideBar
+        className={`${openSideBar
             ? ' block fixed w-screen bg-black/70 z-30 transition ease-in-out duration-200'
             : 'hidden'
-        }`}
-        
+          }`}
+
       >
         <div className="darkBlueBg w-[355px] max-lg:w-[230px] h-screen relative flex flex-col justify-between max-lg:p-7 p-10">
           {/* logo */}
@@ -183,20 +180,19 @@ const Sidebar = () => {
                           <span>{item.title}</span>
                         </div>
                         <div
-                          className={`${
-                            openDrop
+                          className={`${openDrop
                               ? 'rotate-180 transition-all duration-200 ease-out'
                               : 'transition-all duration-200 ease-out'
-                          }`}
+                            }`}
                         >
                           {item.down}
                         </div>
                       </NavLink>
                     ) : (
                       <NavLink
-                      onClick={() => closeSidebar()}
+                        onClick={() => closeSidebar()}
                         to={item.path}
-                        className={`flex flex-row my-2 w-full items-center gap-6 text-[15px] font-normal rounded-xl py-5 px-4 ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] text-[#0A1027] duration-200 ease-out" : "hover:bg-[#830FFF23] text-white" } `}
+                        className={`flex flex-row my-2 w-full items-center gap-6 text-[15px] font-normal rounded-xl py-5 px-4 ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] text-[#0A1027] duration-200 ease-out" : "hover:bg-[#830FFF23] text-white"} `}
                       >
                         <div>{item.icon}</div>
                         <span>{item.title}</span>
@@ -205,11 +201,10 @@ const Sidebar = () => {
 
                     {item.subMenu && (
                       <ul
-                        className={`${
-                          openDrop
+                        className={`${openDrop
                             ? 'flex flex-col bg-indigo-950 rounded-md m-3 duration-200 ease-in-out'
                             : 'hidden'
-                        }`}
+                          }`}
                       >
                         {item.subMenuItems.map((subMenu, indexSub) => (
                           <li
@@ -239,9 +234,9 @@ const Sidebar = () => {
                 return (
                   <li key={index} className="flex">
                     <NavLink
-                    onClick={() => closeSidebar()}
+                      onClick={() => closeSidebar()}
                       to={item.path}
-                      className={`flex flex-row my-2 w-full items-center gap-6 text-[15px] font-normal rounded-xl py-5 px-4 ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] text-[#0A1027] duration-200 ease-out" : "hover:bg-[#830FFF23] text-white" } `}
+                      className={`flex flex-row my-2 w-full items-center gap-6 text-[15px] font-normal rounded-xl py-5 px-4 ${location.pathname === item.path ? "bg-[#F9F9F9] hover:bg-[#F9F9F9] text-[#0A1027] duration-200 ease-out" : "hover:bg-[#830FFF23] text-white"} `}
                     >
                       <div>{item.icon}</div>
                       <span>{item.title}</span>
