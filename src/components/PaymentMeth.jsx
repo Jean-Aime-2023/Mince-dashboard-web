@@ -9,9 +9,9 @@ import logo2 from '../assets/logos/momo-removebg-preview 1.png'
 import logo3 from '../assets/logos/Group 37487.png'
 import logo4 from '../assets/logos/Logo.png'
 
-const PaymentMeth = ({openProfile,toggleDarkMode}) => {
+const PaymentMeth = ({ openProfile, toggleDarkMode }) => {
   return (
-    <div className={` ${openProfile ? "flex": "hidden"} bg-white p-5 rounded-xl flex flex-col gap-6 dark:text-[#CECACAC9] dark:bg-[#0A1027]`}>
+    <div className={` ${openProfile ? "flex" : "hidden"} bg-white p-5 rounded-xl flex flex-col gap-6 dark:text-[#CECACAC9] dark:bg-[#0A1027]`}>
       <ul className="p-">
         <li>
           <Link
@@ -30,7 +30,7 @@ const PaymentMeth = ({openProfile,toggleDarkMode}) => {
             className="flex flex-row gap-3 hover:bg-slate-200 dark:hover:bg-[#232262] p-3 rounded-xl"
           >
             <div>
-            <img src={logo2} alt="" />
+              <img src={logo2} alt="" />
             </div>
             <p>Momo Pay</p>
           </Link>
@@ -41,7 +41,7 @@ const PaymentMeth = ({openProfile,toggleDarkMode}) => {
             className="flex flex-row gap-3 hover:bg-slate-200 dark:hover:bg-[#232262] p-3 rounded-xl"
           >
             <div>
-            <img src={logo3} alt="" />
+              <img src={logo3} alt="" />
             </div>
             <p>Paypal</p>
           </Link>
@@ -50,14 +50,14 @@ const PaymentMeth = ({openProfile,toggleDarkMode}) => {
           <Link
             to=""
             className="flex flex-row gap-3 hover:bg-slate-200 dark:hover:bg-[#232262] p-3 rounded-xl text-red-600 items-center"
-          > 
-            <div> 
-            <img src={logo4} alt="" />
+          >
+            <div>
+              <img src={logo4} alt="" />
             </div>
             <p>Mastercard</p>
           </Link>
         </li>
-        
+
       </ul>
     </div>
   );
