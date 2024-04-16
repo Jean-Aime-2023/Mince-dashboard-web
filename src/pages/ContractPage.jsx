@@ -3,6 +3,8 @@ import Header from '../components/Header';
 import { Line, LineChart, ResponsiveContainer, DefaultTooltipContent } from 'recharts';
 import { Bar } from 'react-chartjs-2';
 import sourceData from '../data/sourceData.json'
+import BarChart from '../components/BarChart';
+import GeographyChart from '../components/GeographyChart';
 
 const data = [
   { name: 'Jan', uv: 3000 },
@@ -121,8 +123,26 @@ const ContractPage = ({ toggleDarkMode }) => {
           </div>
         </div>
 
-        <div>
-          
+        <div className='flex flex-row w-[100%] py-5'>
+          <div className='flex flex-col gap-10 w-[70%]'>
+            <div className='shadow-lg rounded-xl'>
+            <BarChart/>
+            </div>
+            <div className='flex flex-row gap-5'>
+               {/* map */}
+               <div className='shadow-lg rounded-xl'>
+                <GeographyChart/>
+              </div>
+
+              {/* line chart */}
+              <div></div>
+            </div>
+          </div>
+
+          {/* calendar */}
+          <div className='w-[30%]'>
+
+          </div>
         </div>
       </div>
     </div>
