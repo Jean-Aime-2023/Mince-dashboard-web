@@ -3,15 +3,44 @@ import { geoFeatures } from '../data/mockGeoFeatures'
 import { mockGeographyData as data } from '../data/mockData'
 
 const GeographyChart = () => {
+    if (!geoFeatures || !data) {
+        return null; // Return null if data is not ready
+      }
+      const colorScale = ['#5547D7'];
   return (
     <ResponsiveChoropleth
         data={data}
+        theme={{
+            axis: {
+              domain: {
+                line: {
+                  stroke: "#CECACA",
+                },
+              },
+              legend: {
+                text: {
+                  fill: "#CECACA",
+                },
+              },
+              ticks: {
+                line: {
+                  stroke: "#CECACA",
+                  strokeWidth: 1,
+                },
+                text: {
+                  fill: "#CECACA",
+                },
+              },
+            },
+            legends: {
+              text: {
+                fill: "#CECACA",
+              },
+            },
+          }}
         features={geoFeatures.features}
         margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
-        colors="nivo"
         domain={[ 0, 1000000 ]}
-        unknownColor="#666666"
-        label="properties.name"
         valueFormat=".2s"
         projectionTranslation={[ 0.5, 0.5 ]}
         projectionRotation={[ 0, 0, 0 ]}
@@ -19,84 +48,9 @@ const GeographyChart = () => {
         graticuleLineColor="#dddddd"
         borderWidth={0.5}
         borderColor="#152538"
-        defs={[
-            {
-                id: 'dots',
-                type: 'patternDots',
-                background: 'inherit',
-                color: '#38bcb2',
-                size: 4,
-                padding: 1,
-                stagger: true
-            },
-            {
-                id: 'lines',
-                type: 'patternLines',
-                background: 'inherit',
-                color: '#eed312',
-                rotation: -45,
-                lineWidth: 6,
-                spacing: 10
-            },
-            {
-                id: 'gradient',
-                type: 'linearGradient',
-                colors: [
-                    {
-                        offset: 0,
-                        color: '#000'
-                    },
-                    {
-                        offset: 100,
-                        color: 'inherit'
-                    }
-                ]
-            }
-        ]}
-        fill={[
-            {
-                match: {
-                    id: 'CAN'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'CHN'
-                },
-                id: 'lines'
-            },
-            {
-                match: {
-                    id: 'ATA'
-                },
-                id: 'gradient'
-            }
-        ]}
+        colors={colorScale}
         legends={[
-            {
-                anchor: 'bottom-left',
-                direction: 'column',
-                justify: true,
-                translateX: 20,
-                translateY: -100,
-                itemsSpacing: 0,
-                itemWidth: 94,
-                itemHeight: 18,
-                itemDirection: 'left-to-right',
-                itemTextColor: '#444444',
-                itemOpacity: 0.85,
-                symbolSize: 18,
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemTextColor: '#000000',
-                            itemOpacity: 1
-                        }
-                    }
-                ]
-            }
+            
         ]}
     />
   )
