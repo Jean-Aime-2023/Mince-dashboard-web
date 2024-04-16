@@ -15,19 +15,24 @@ import { GoArrowUpRight } from "react-icons/go";
 import { HiMiniArrowDownLeft } from "react-icons/hi2";
 import { FaExclamation } from "react-icons/fa6";
 import PaymentMeth from '../components/PaymentMeth';
+import { IoMdAdd } from 'react-icons/io';
+import DropDown from '../components/DropDown';
 
 
 const WalletPage = ({ toggleDarkMode }) => {
-  const [openPay, setopenPay] = useState(false);
+  const [openPay, setOpenPay] = useState(false);
+  const [iconRotation, setIconRotation] = useState(0); 
+
   const toggleOpenPay = () => {
-    setopenPay(!openPay)
-  }
+    setOpenPay(!openPay);
+    setIconRotation(openPay ? 0 : 180);
+  };
+
   return (
     <div className="flex flex-col gap-3 bg-[#F9F9F9] dark:bg-[#0F1631] h-screen">
       <Header header="Wallet" search="true" userProfile="false" toggleDarkMode={toggleDarkMode} />
-      <div className='flex flex-row h-screen'>
+      <div className='flex flex-row h-screen max-lg:flex-col'>
         <div className='w-[70%] h-full flex flex-col gap-10 p-6 px-10'>
-
 
           <div className='darkBg rounded-xl w-full p-8 flex flex-col gap-5'>
             <p className='text-[#6B6B6B] text-lg'>Your Total Balance</p>
@@ -36,15 +41,15 @@ const WalletPage = ({ toggleDarkMode }) => {
               <Button icon={<FaPlus />} action="Add Money To Wallet" />
             </section>
             <section className='lg:flex flex-row gap-3 max-lg:gap-6 px-4 py-2'>
-              <div className='flex flex-col justify-center gap-2 bg-white px-5 py-3 rounded-lg'>
+              <div className='flex flex-col justify-center gap-2 bg-white px-5 dark:bg-[#0A1027] py-3 rounded-lg dark:text-white shadow-2xl'>
                 <p className='text-xl font-semibold flex items-center gap-3'><span><LuTrendingUp color='green' /></span> $500.02</p>
                 <p className='font-light'>Today's Income</p>
               </div>
-              <div className='flex flex-col justify-center gap-2 bg-white px-5 py-3 rounded-lg'>
+              <div className='flex flex-col justify-center gap-2 bg-white px-5 dark:bg-[#0A1027] py-3 rounded-lg dark:text-white shadow-2xl'>
                 <p className='text-xl font-semibold flex items-center gap-3'><span><LuTrendingDown color='red' /></span> $500.02</p>
                 <p className='font-light'>Today's Expenses</p>
               </div>
-              <div className='flex flex-col justify-center gap-2 bg-white px-5 py-3 rounded-lg'>
+              <div className='flex flex-col justify-center gap-2 bg-white px-5 dark:bg-[#0A1027] py-3 rounded-lg dark:text-white shadow-2xl'>
                 <p className='text-xl font-semibold flex items-center gap-3'><span><LuTrendingUp color='green' /></span> $10.02</p>
                 <p className='font-light'>Escrow Savings</p>
               </div>
@@ -52,19 +57,26 @@ const WalletPage = ({ toggleDarkMode }) => {
           </div>
 
 
-          <div className='relative flex flex-row gap-7 max-md:flex-col w-full bg-red overflow-y-scroll mb-[5rem] scrollbar-hidden'>
+          <div className='relative flex flex-row gap-7 max-md:flex-col w-full overflow-y-scroll mb-[5rem] scrollbar-hidden pb-10'>
             <div className='flex flex-col w-[30%]'>
-              <div onClick={() => toggleOpenPay()} className='flex flex-row gap-3 text-[#B1B1B1] cursor-pointer items-center'>
+              <div onClick={toggleOpenPay} className='flex flex-row gap-3 text-[#B1B1B1] cursor-pointer items-center'>
                 <p className='pl-7'>Payment Method</p>
-                <span><GoTriangleDown /></span>
+                <span style={{ transform: `rotate(${iconRotation}deg)` }}><GoTriangleDown /></span>
               </div>
-              <div className='flex flex-col w-full'>
-                <img src={Card1} alt="card 1" className='cursor-pointer' />
-                <img src={Card2} alt="card 1" className='cursor-pointer' />
-                <img src={Card3} alt="card 1" className='cursor-pointer' />
-              </div>
+              {/* <div>
+                <DropDown/>
+              </div> */}
+                <div className="flex flex-col w-full">
+                  <img src={Card1} alt="card 1" className='cursor-pointer' />
+                  <img src={Card2} alt="card 2" className='cursor-pointer' />
+                  <img src={Card3} alt="card 3" className='cursor-pointer' />
+                  <div className='text-[#5547D7] cursor-pointer flex gap-3 justify-center text-center dashedBorder rounded-xl py-4 items-center'>
+                    <IoMdAdd />
+                    <p>Add New Card</p>
+                  </div>
+                </div>
             </div>
-            <div className='flex flex-col w-[70%] px-8 py-5 bg-white rounded-xl dark:bg-[#0A1027] dark:text-[#6B6B6B] shadow-md'>
+            <div className='flex flex-col w-[70%] h-[40rem] mt-10 px-8 py-10 bg-white rounded-xl dark:bg-[#0A1027] dark:text-[#6B6B6B] shadow-md'>
               <section className='flex justify-center'><img src={Card1} alt="" className='h-[20rem] cursor-pointer' /></section>
               <div className='flex flex-col gap-5'>
                 <div className='flex flex-row justify-between items-center'>
