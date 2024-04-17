@@ -8,6 +8,7 @@ import Deals from './pages/DealsPage';
 import Analytics from './pages/AnalyticsPage';
 import Settings from './pages/SettingPage';
 import GetHelp from './pages/GetHelpPage';
+import NewContract from './pages/NewContract';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -27,6 +28,7 @@ export default function App() {
             <Route path="/wallet" element={<Wallet toggleDarkMode={toggleDarkMode} />} />
             <Route path="/activities/contracts" element={<Contract toggleDarkMode={toggleDarkMode} />} />
             <Route path="/activities/deals" element={<Deals toggleDarkMode={toggleDarkMode} />} />
+            <Route path="/activities/contracts/newContract" element={<NewContract toggleDarkMode={toggleDarkMode} />} />
             <Route path="/analytics" element={<Analytics toggleDarkMode={toggleDarkMode} />} />
             <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} />} />
             <Route path="/gethelp" element={<GetHelp toggleDarkMode={toggleDarkMode} />} />
