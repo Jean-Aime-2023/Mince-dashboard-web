@@ -159,7 +159,7 @@ const ContractPage = ({ toggleDarkMode }) => {
 
           {/* calendar */}
           <div className='w-[30%]'>
-            <Calendar/> 
+            {/* <Calendar/>  */}
           </div>
         </div>
       </div>
