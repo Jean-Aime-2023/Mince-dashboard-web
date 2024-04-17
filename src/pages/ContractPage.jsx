@@ -16,7 +16,7 @@ const data = [
 
 const ContractPage = ({ toggleDarkMode }) => {
   return (
-    <div className="flex flex-col gap-3 bg-[#F9F9F9] dark:bg-[#0F1631] h-screen overflow-y-scroll scrollbar-hidden">
+    <div className="flex flex-col gap-3 bg-[#F9F9F9] dark:bg-[#0F1631] h-screen">
       <Header header="Contracts" search="true" userProfile="false" toggleDarkMode={toggleDarkMode} />
       <div className='flex flex-col mx-10 my-5'>
         {/* divs */}
@@ -123,18 +123,18 @@ const ContractPage = ({ toggleDarkMode }) => {
         </div>
 
         <div className='flex flex-row w-[100%] py-5'>
-          <div className='flex flex-col gap-10 w-[70%]'>
-            <div className='shadow-lg rounded-xl'>
+          <div className='flex flex-col gap-10 w-[70%] overflow-y-scroll h-[80%] scrollbar-hidden -mb-[8rem]'>
+            <div className='shadow-lg rounded-xl bg-white'>
               <BarChart />
             </div>
-            <div className='flex flex-row gap-5 w-[100%]'>
+            <div className='flex flex-row gap-5 w-[100%] mb-10'>
               {/* map */}
-              <div className='shadow-lg rounded-xl h-[25rem] w-[50%] p-3'>
+              <div className='shadow-lg rounded-xl h-[25rem] w-[50%] p-3 bg-white'>
                 <GeographyChart />
               </div>
 
               {/* line chart */}
-              <div className='shadow-lg rounded-xl h-[25rem] w-[50%] p-3'>
+              <div className='shadow-lg rounded-xl h-[25rem] w-[50%] p-3 bg-white'>
                 <div className='chart flex-1' style={{ filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.7))' }}>
                   <ResponsiveContainer width="100%" height={360}>
                     <DefaultTooltipContent
@@ -158,8 +158,44 @@ const ContractPage = ({ toggleDarkMode }) => {
           </div>
 
           {/* calendar */}
-          <div className='w-[30%]'>
-            {/* <Calendar/>  */}
+          <div className='w-[30%] bg-white ml-10 rounded-xl p-7 flex flex-col gap-5 h-full'>
+            <Calendar />
+            <hr className='border border-gray-300' />
+            <div className='flex flex-col gap-7'>
+              <section className='flex flex-col gap-2'>
+                <p className='text-[#002159]'>Tasks today</p>
+                <p className='flex flex-row items-center'>
+                  <span><input
+                  type="checkbox"
+                  className="custom-checkbox"
+                /> Send prototypeof the web app to dev
+                </span></p>
+              </section>
+              <section className='flex flex-col gap-2'>
+                <p className='text-[#002159]'>Tasks tomorrow</p>
+                <p className='flex flex-row items-center'>
+                  <span><input
+                  type="checkbox"
+                  className="custom-checkbox"
+                /> Get the copy for the facebook image
+                </span></p>
+                <p className='flex flex-row items-center'>
+                  <span><input
+                  type="checkbox"
+                  className="custom-checkbox"
+                /> Send invision demo to squad
+                </span></p>
+              </section>
+              <section className='flex flex-col gap-2'>
+                <p className='text-[#002159]'>Tasks tomorrow</p>
+                <p className='flex flex-row items-center'>
+                  <span><input
+                  type="checkbox"
+                  className="custom-checkbox"
+                /> Update style guide and add color 
+                </span></p>
+              </section>
+            </div>
           </div>
         </div>
       </div>

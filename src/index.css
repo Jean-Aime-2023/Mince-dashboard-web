@@ -133,51 +133,48 @@ TableHead{
   height: 100%;
 }
 
-.css-u0soqy-MuiPickerStaticWrapper-root {
-  box-shadow: 3px 2px 10px 5px #888888 !important;
+.custom-calendar .react-calendar__tile {
+  border: 20px !important;
+  background-color: white !important;
+  padding: 10px;
 }
 
-.css-hlj6pa-MuiDialogActions-root {
-  display: none !important;
+/* Customize selected date to be a purple circle */
+.custom-calendar .react-calendar__tile--active {
+  height: 45px;
+  width: 45px;
+  border-radius: 100% !important;
+  background-color: #5547D7 !important;
+}
+.custom-calendar .react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; 
 }
 
-.css-j88s13-MuiPickersToolbar-root-MuiDatePickerToolbar-root
-  .MuiPickersToolbar-penIconButton {
-  display: none !important;
+.custom-calendar .react-calendar__month-view__weekdays__weekday abbr {
+  text-decoration: none !important;
 }
 
-.css-j88s13-MuiPickersToolbar-root-MuiDatePickerToolbar-root {
-  padding: 0 !important;
+.custom-calendar .react-calendar__navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; 
 }
 
-.css-hq2kpw-MuiGrid-root-MuiPickersToolbar-content {
-  justify-content: center !important;
-  background-color: orange;
-  padding: 1rem;
+.custom-calendar .react-calendar__month-view__weekdays {
+  display: flex;
+  justify-content: center;
 }
 
-.css-1hbyad5-MuiTypography-root {
-  display: none !important;
+.custom-calendar .react-calendar__month-view__days {
+  display: grid;
+  place-items: center;
 }
 
-.css-bkrceb-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
-  background-color: orange !important;
-}
-
-.css-195y93z-MuiButtonBase-root-MuiPickersDay-root.Mui-selected {
-  background-color: orange !important;
-  color: black !important;
-}
-.css-195y93z-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected) {
-  border-color: transparent !important;
-  color: orange;
-}
-
-.css-144dnr3-MuiBadge-badge {
-  color: green;
-}
-
-.css-1n2mv2k {
-  background-color: #f4f4f4;
-  margin-bottom: 1rem;
+.custom-checkbox {
+  width: 20px; /* Adjust the width as needed */
+  height: 20px; /* Adjust the height as needed */
 }

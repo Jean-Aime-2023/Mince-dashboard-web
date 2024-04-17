@@ -11,7 +11,7 @@ const DealsPage = ({toggleDarkMode}) => {
       <div className='relative z-0 flex flex-col mx-10 my-5 gap-7'>
         <div className='realtive'>
           <Button action={'Filter'} icon={<TuneIcon/>} bg={'#5547D7'} hoverBg={'#7094db'}/>
-          <div className='absolute left-20 top-10 rounded-xl shadow-lg p-4 z-50'>
+          {/* <div className='absolute left-20 top-10 rounded-xl shadow-lg p-4 z-50'>
             <ul>
               <li>Filter By:</li>
               <ul>
@@ -20,7 +20,7 @@ const DealsPage = ({toggleDarkMode}) => {
                 <li>Transaction History</li>
               </ul>
             </ul>
-          </div>
+          </div> */}
         </div>
         <div className='flex flex-row justify-between text-md font-semibold'>
           <p>Name/Company</p>
