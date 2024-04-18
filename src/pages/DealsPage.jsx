@@ -10,7 +10,18 @@ const DealsPage = ({toggleDarkMode}) => {
       <Header header="Deals" search="true" userProfile="false" toggleDarkMode={toggleDarkMode} />
       <div className='relative z-0 flex flex-col mx-10 my-5 gap-7'>
         <div className='realtive'>
-          <Button action={'Filter'} icon={<TuneIcon/>} bg={'#5547D7'} hoverBg={'#7094db'}/>
+        <Button action={'Filter'} icon={<TuneIcon />} bg={'#5547D7'} hoverBg={'#7094db'} onClick={() => document.getElementById('my_modal_left3').showModal()} />
+              <dialog id="my_modal_left3" className="w-[30%] h-[20%] rounded-2xl px-6 py-6 text-lg dark:bg-[#1B1D52] dark:text-white">
+                <div className="flex flex-col">
+                  <h3 className="font-bold text-xl">Oops!</h3>
+                  <p className="py-4">Unable to filter contract and money !!</p>
+                  <div className="modal-action flex justify-end">
+                    <form method="dialog" className='mt-4'>
+                      <button className="bg-[#5547D7] text-white px-4 py-2 rounded-lg">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
           {/* <div className='absolute left-20 top-10 rounded-xl shadow-lg p-4 z-50'>
             <ul>
               <li>Filter By:</li>

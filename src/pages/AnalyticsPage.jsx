@@ -123,12 +123,14 @@ const AnalyticsPage = ({ toggleDarkMode }) => {
         </div>
 
         <div className='flex flex-row w-[100%] py-5'>
-          <div className='flex flex-col gap-10 w-[70%] overflow-y-scroll h-[80%] scrollbar-hidden -mb-[8rem]'>
+          <div className='flex flex-col gap-10 w-[70%] overflow-y-scroll h-[80%] scrollbar-hidden -mb-[12rem]'>
             <div className='shadow-lg rounded-xl bg-white'>
               <BarChart />
             </div>
+            <div className='text-xl font-semibold text-gray-500'>Analytics and charts</div>
             <div className='flex flex-row gap-5 w-[100%] mb-10'>
               {/* map */}
+
               <div className='shadow-lg rounded-xl h-[25rem] w-[50%] p-3 bg-white'>
                 <GeographyChart />
               </div>

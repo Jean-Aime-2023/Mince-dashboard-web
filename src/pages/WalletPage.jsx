@@ -16,17 +16,16 @@ import { HiMiniArrowDownLeft } from "react-icons/hi2";
 import { FaExclamation } from "react-icons/fa6";
 import PaymentMeth from '../components/PaymentMeth';
 import { IoMdAdd } from 'react-icons/io';
-import DropDown from '../components/DropDown';
-
 
 const WalletPage = ({ toggleDarkMode }) => {
   const [openPay, setOpenPay] = useState(false);
-  const [iconRotation, setIconRotation] = useState(0); 
+  const [iconRotation, setIconRotation] = useState(0);
 
   const toggleOpenPay = () => {
     setOpenPay(!openPay);
     setIconRotation(openPay ? 0 : 180);
   };
+
 
   return (
     <div className="flex flex-col gap-3 bg-[#F9F9F9] dark:bg-[#0F1631] h-screen">
@@ -38,7 +37,21 @@ const WalletPage = ({ toggleDarkMode }) => {
             <p className='text-[#6B6B6B] text-lg'>Your Total Balance</p>
             <section className='lg:flex flex-row max-md:flex-col gap-5 justify-between'>
               <span className='font-bold text-5xl text-white'>$ 5,672.55</span>
-              <Button icon={<FaPlus />} action="Add Money To Wallet" />
+              <Button icon={<FaPlus />} action="Add Money To Wallet" bg={'#5547D7'} hoverBg={'#7094db'} onClick={() => document.getElementById('my_modal_left2').showModal()} />
+
+              {/* <button className="bg-[#5547D7] hover:bg-[#7164e2] text-white text-lg rounded-lg flex max-md:text-sm items-center text-center px-11 py-4  justify-center" onClick={() => document.getElementById('my_modal_left1').showModal()}>Send Money</button> */}
+              <dialog id="my_modal_left2" className="w-[30%] h-[20%] rounded-2xl px-6 py-6 text-lg dark:bg-[#1B1D52] dark:text-white">
+                <div className="flex flex-col">
+                  <h3 className="font-bold text-xl">Oops!</h3>
+                  <p className="py-4">Unable to add money to wallet!!</p>
+                  <div className="modal-action flex justify-end">
+                    <form method="dialog" className='mt-4'>
+                      <button className="bg-[#5547D7] text-white px-4 py-2 rounded-lg">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+
             </section>
             <section className='lg:flex flex-row gap-3 max-lg:gap-6 px-4 py-2'>
               <div className='flex flex-col justify-center gap-2 bg-white px-5 dark:bg-[#0A1027] py-3 rounded-lg dark:text-white shadow-2xl'>
@@ -66,15 +79,23 @@ const WalletPage = ({ toggleDarkMode }) => {
               {/* <div>
                 <DropDown/>
               </div> */}
-                <div className="flex flex-col w-full">
-                  <img src={Card1} alt="card 1" className='cursor-pointer' />
-                  <img src={Card2} alt="card 2" className='cursor-pointer' />
-                  <img src={Card3} alt="card 3" className='cursor-pointer' />
-                  <div className='text-[#5547D7] cursor-pointer flex gap-3 justify-center text-center dashedBorder rounded-xl py-4 items-center'>
-                    <IoMdAdd />
-                    <p>Add New Card</p>
+              <div className="flex flex-col w-full">
+                <img src={Card1} alt="card 1" className='cursor-pointer' />
+                <img src={Card2} alt="card 2" className='cursor-pointer' />
+                <img src={Card3} alt="card 3" className='cursor-pointer' />
+                <button className="text-[#5547D7] py-3 text-md rounded-xl dashedBorder bg-transparent max-md:text-sm flex flex-row gap-3 items-center text-center px-11 justify-center" onClick={() => document.getElementById('my_modal_right').showModal()}> <IoMdAdd size={25} /> Add New Card</button>
+                <dialog id="my_modal_right" className="w-[30%] h-[20%] rounded-2xl px-6 py-6 text-lg dark:bg-[#1B1D52] dark:text-white">
+                  <div className="flex flex-col">
+                    <h3 className="font-bold text-xl">Oops!</h3>
+                    <p className="py-4">No cards registered yet!!</p>
+                    <div className="modal-action flex justify-end">
+                      <form method="dialog" className='mt-4'>
+                        <button className="bg-[#5547D7] text-white px-4 py-2 rounded-lg">Close</button>
+                      </form>
+                    </div>
                   </div>
-                </div>
+                </dialog>
+              </div>
             </div>
             <div className='flex flex-col w-[70%] h-[40rem] mt-10 px-8 py-10 bg-white rounded-xl dark:bg-[#0A1027] dark:text-[#6B6B6B] shadow-md'>
               <section className='flex justify-center'><img src={Card1} alt="" className='h-[20rem] cursor-pointer' /></section>

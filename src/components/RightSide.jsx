@@ -21,10 +21,21 @@ const RigthSide = () => {
         <div>
           <img src={visaCard} alt="" className='h-[100%] w-[100%]' />
         </div>
-        <div className='text-[#5547D7] cursor-pointer flex gap-3 justify-center text-center dashedBorder rounded-xl py-4 items-center'>
-          <IoMdAdd />
-          <p>Add New Card</p>
-        </div>
+
+
+        <button className="text-[#5547D7] py-3 text-md rounded-xl dashedBorder bg-transparent max-md:text-sm flex flex-row gap-3 items-center text-center px-11 justify-center" onClick={() => document.getElementById('my_modal_right').showModal()}> <IoMdAdd size={25} /> Add New Card</button>
+        <dialog id="my_modal_right" className="w-[30%] h-[20%] rounded-2xl px-6 py-6 text-lg dark:bg-[#1B1D52] dark:text-white">
+          <div className="flex flex-col">
+            <h3 className="font-bold text-xl">Oops!</h3>
+            <p className="py-4">No cards registered yet!!</p>
+            <div className="modal-action flex justify-end">
+              <form method="dialog" className='mt-4'>
+                <button className="bg-[#5547D7] text-white px-4 py-2 rounded-lg">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+
       </div>
 
       <div className=" flex flex-col gap-6 bg-white shadowCards rounded-2xl p-10 dark:bg-[#0A1027]">
@@ -67,9 +78,18 @@ const RigthSide = () => {
             <FaAngleDown className='dark:text-white' />
           </div>
         </div>
-        <button className="bg-[#5547D7] hover:bg-[#7164e2] text-white text-lg rounded-lg flex max-md:text-sm items-center text-center px-11 py-4  justify-center">
-          Send Money
-        </button>
+        <button className="bg-[#5547D7] hover:bg-[#7164e2] text-white text-lg rounded-lg flex max-md:text-sm items-center text-center px-11 py-4  justify-center" onClick={() => document.getElementById('my_modal_left1').showModal()}>Send Money</button>
+          <dialog id="my_modal_left1" className="w-[30%] h-[20%] rounded-2xl px-6 py-6 text-lg dark:bg-[#1B1D52] dark:text-white">
+            <div className="flex flex-col">
+              <h3 className="font-bold text-xl">Oops!</h3>
+              <p className="py-4">Unable to send money!!</p>
+              <div className="modal-action flex justify-end">
+                <form method="dialog" className='mt-4'>
+                  <button className="bg-[#5547D7] text-white px-4 py-2 rounded-lg">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
       </div>
 
 

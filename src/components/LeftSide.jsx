@@ -51,7 +51,7 @@ const LeftSide = () => {
         </svg>
       ),
       column4: '$230',
-      column5: <Button action="Get Deatil" />,
+      column5: <Button action="Get Deatil" bg={'#5547D7'} hoverBg={'#7094db'}  />,
     },
     {
       column1: (
@@ -96,7 +96,7 @@ const LeftSide = () => {
         </svg>
       ),
       column4: '$230',
-      column5: <Button icon={null} action="Get Deatil" />,
+      column5: <Button icon={null} action="Get Deatil" bg={'#5547D7'} hoverBg={'#7094db'}  />,
     },
     {
       column1: (
@@ -141,7 +141,7 @@ const LeftSide = () => {
         </svg>
       ),
       column4: '$230',
-      column5: <Button icon={null} action="Get Deatil" />,
+      column5: <Button icon={null} action="Get Deatil" bg={'#5547D7'} hoverBg={'#7094db'}  />,
     },
     {
       column1: (
@@ -186,10 +186,12 @@ const LeftSide = () => {
         </svg>
       ),
       column4: '$230',
-      column5: <Button icon={null} action="Get Deatil" />,
+      column5: <Button icon={null} action="Get Deatil" bg={'#5547D7'} hoverBg={'#7094db'}  />,
     },
     // Add more data rows as needed
   ];
+
+
   return (
     <div className="w-full h-full">
       <div className="bg-[#1B1D52] flex justify-between px-12 py-10 mb-10 rounded-md relative max-md:flex-col max-lg:px-5 max-lg:py-5 max-h-[262px]` hover:shadowHover">
@@ -201,9 +203,21 @@ const LeftSide = () => {
             Streamline transactions with a simple tap. Stylish, secure, and
             accepted <br /> everywhere. Upgrade to effortless payments today!
           </p>
-          <button className="bg-[#5547D7] hover:bg-[#7164e2] text-md rounded-md flex max-md:text-sm items-center text-center px-11 py-2 justify-center">
-            Order Now
-          </button>
+          <button className="bg-[#5547D7] hover:bg-[#7164e2] text-md rounded-md max-md:text-sm items-center text-center px-11 py-2 justify-center" onClick={() => document.getElementById('my_modal_left').showModal()}>Order now</button>
+          <dialog id="my_modal_left" className="w-[30%] h-[20%] rounded-2xl px-6 py-6 text-lg dark:bg-[#1B1D52] dark:text-white">
+            <div className="flex flex-col">
+              <h3 className="font-bold text-xl">Oops!</h3>
+              <p className="py-4">Unable to order due to no money!!</p>
+              <div className="modal-action flex justify-end">
+                <form method="dialog" className='mt-4'>
+                  <button className="bg-[#5547D7] text-white px-4 py-2 rounded-lg">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+
+
+
         </div>
         <div className="max-lg:hidden absolute top-2 -right-10">
           <img src={img} alt="" className="w-[80%]" />

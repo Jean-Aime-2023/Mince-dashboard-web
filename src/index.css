@@ -145,6 +145,7 @@ TableHead{
   width: 45px;
   border-radius: 100% !important;
   background-color: #5547D7 !important;
+  color: white;
 }
 .custom-calendar .react-calendar__navigation {
   display: flex;
