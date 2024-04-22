@@ -6,10 +6,13 @@ import { GoDotFill } from 'react-icons/go';
 import { IoSearch } from 'react-icons/io5';
 import Notifications from './Notifications';
 import UserOptions from './UserOptions';
+import { useNavigate } from 'react-router-dom';
+import Button from './Button';
 
 const Header = ({ header, search, userProfile, toggleDarkMode }) => {
   const [openNotif, setOpenNotif] = useState(false);
   const [openProfile, setOpenProfile] = useState(false)
+  const navigate = useNavigate()
 
   const toggleNotif = () => {
     setOpenNotif(!openNotif);
@@ -46,7 +49,8 @@ const Header = ({ header, search, userProfile, toggleDarkMode }) => {
 
       {userProfile && (
         <div className="flex flex-row items-center justify-center gap-3 cursor-pointer">
-          <div>
+          <div className='' onClick={()=>navigate("/chat")} >
+          {/* <div><Button onClick={()=>navigate("/chat")} action={''} icon={<TiMessageTyping/>} bg={'#5547D7'} hoverBg={'#7094db'} /></div> */}
             <TiMessageTyping className="iconHeader cursor-pointer dark:bg-[#232262]" size={37} />
           </div>
           <div

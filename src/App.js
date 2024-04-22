@@ -9,6 +9,7 @@ import Analytics from './pages/AnalyticsPage';
 import Settings from './pages/SettingPage';
 import GetHelp from './pages/GetHelpPage';
 import NewContract from './pages/NewContract';
+import Chat from './pages/Chat';
 
 export default function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -32,6 +33,7 @@ export default function App() {
             <Route path="/analytics" element={<Analytics toggleDarkMode={toggleDarkMode} />} />
             <Route path="/settings" element={<Settings toggleDarkMode={toggleDarkMode} />} />
             <Route path="/gethelp" element={<GetHelp toggleDarkMode={toggleDarkMode} />} />
+            <Route path="/chat" element={<Chat toggleDarkMode={toggleDarkMode} />} />
           </Routes>
         </div>
       </div>
